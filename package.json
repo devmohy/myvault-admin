@@ -1,0 +1,46 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.7",
+        "autoprefixer": "^10.4.16",
+        "axios": "^1.6.1",
+        "flowbite": "^2.2.0",
+        "laravel-vite-plugin": "^0.8.0",
+        "postcss": "^8.4.32",
+        "tailwindcss": "^3.3.6",
+        "unplugin-vue-components": "^0.26.0",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@ant-design/icons-vue": "^7.0.1",
+        "@vitejs/plugin-vue": "^4.5.1",
+        "@vueform/multiselect": "^2.6.6",
+        "ant-design-vue": "^4.1.2",
+        "apexcharts": "^3.49.1",
+        "codemirror": "^5.65.16",
+        "codemirror-editor-vue3": "^2.4.1",
+        "dayjs": "^1.11.10",
+        "dropzone-vue": "^0.1.11",
+        "flowbite-datepicker": "^1.2.5",
+        "flowbite-vue": "^0.1.1",
+        "pinia": "^2.1.7",
+        "primeicons": "^6.0.1",
+        "primevue": "^3.49.1",
+        "quill": "^1.3.7",
+        "vue": "^3.3.36",
+        "vue-cryptojs": "^2.4.5",
+        "vue-loader": "^17.3.1",
+        "vue-pdf": "^4.3.0",
+        "vue-request": "^2.0.4",
+        "vue-router": "^4.2.5",
+        "vue-tailwind-datepicker": "^1.6.5",
+        "vue-tel-input": "^8.3.1",
+        "vue-toastification": "^2.0.0-rc.5",
+        "vue3-apexcharts": "^1.5.3"
+    }
+}
