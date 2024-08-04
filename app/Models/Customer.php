@@ -84,8 +84,8 @@ class Customer extends Model
 
     public function getWalletBalanceAttribute()
     {   
-        $wallet = Wallet::where('name', 'PAYMYRENT')->first();
-        $balance = $this->walletBalances()->wallet('PAYMYRENT')->sum('available_balance');
+        $wallet = Wallet::where('name', 'VAULT')->first();
+        $balance = $this->walletBalances()->wallet('VAULT')->sum('available_balance');
         return $balance ?? 0.00;
     }
 
