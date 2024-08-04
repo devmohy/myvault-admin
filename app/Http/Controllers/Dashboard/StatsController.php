@@ -21,7 +21,7 @@ class StatsController extends Controller
     {
         $summaries = [];
         // Query to get summaries for savings
-        $savingsQuery = DB::connection('vualt')->table('savings')
+        $savingsQuery = DB::connection('vault')->table('savings')
         ->join('savings_balances', 'savings.id', '=', 'savings_balances.savings_id')
         ->selectRaw('SUM(savings_balances.available_balance) as total');
         $savingsSummary = $savingsQuery->first();
