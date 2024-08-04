@@ -11,6 +11,7 @@
 <script setup>
 import { defineProps, computed } from 'vue';
 import ApexCharts from 'vue3-apexcharts';
+import numeral from 'numeral';
 
 const props = defineProps({
   chartType: {
@@ -79,11 +80,20 @@ const chartOptions = computed(() => {
       yaxis: {
         title: {
           text: props.title || 'Total Amount'
+        },
+        labels: {
+          formatter: (value) => numeral(value).format('0.0a')
         }
       },
       dataLabels: {
         enabled: false
-      }
+      },
+      series: [
+        {
+          name: "Savings",
+          data: props.chartData,
+        },
+      ],
     };
   } else if (props.chartType === 'line') {
     return {

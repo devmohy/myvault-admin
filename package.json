@@ -28,6 +28,7 @@
         "dropzone-vue": "^0.1.11",
         "flowbite-datepicker": "^1.2.5",
         "flowbite-vue": "^0.1.1",
+        "numeral": "^2.0.6",
         "pinia": "^2.1.7",
         "primeicons": "^6.0.1",
         "primevue": "^3.49.1",

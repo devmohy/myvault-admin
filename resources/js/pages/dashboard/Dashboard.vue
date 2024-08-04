@@ -52,53 +52,6 @@ onMounted(() => {
 const business = authStore.user.business;
 const kybVerified = authStore.user.business?.has_completed_kyb;
 const showTour = ref(true);
-
-const series = ref([
-  {
-    data: [
-      400,
-      430,
-      448,
-      470,
-      540,
-      580,
-      690,
-      1100,
-      1200,
-      1380,
-      1212,
-      1212,
-      121,
-      323,
-      3123,
-      232,
-      323,
-      323,
-      2323,
-      323,
-    ],
-  },
-]);
-
-const chartOptions = ref({
-  chart: {
-    type: "bar",
-    height: 350,
-  },
-  plotOptions: {
-    bar: {
-      borderRadius: 4,
-      borderRadiusApplication: "end",
-      horizontal: false,
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  xaxis: {
-    categories: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
-  },
-});
 </script>
 
 <template>
@@ -143,8 +96,8 @@ const chartOptions = ref({
         chartType="bar"
         :chartData="savingsData.data"
         :labels="savingsData.labels"
+        endingShape="rounded"
         title="Monthly Savings"
-        endingShape="flat"
       />
       </div>
       <div class="p-4 bg-white border border-gray-100 rounded-lg shadow lg:p-2">
