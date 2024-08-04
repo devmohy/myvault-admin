@@ -39,7 +39,7 @@ const columns = [
     dataIndex: "wallet_balance",
   },
   {
-    title: "Interest Balance",
+    title: "Cashback Balance",
     dataIndex: "interest_balance",
   },
 ];

@@ -16,7 +16,7 @@ export default [
     dataIndex: "type",
   },
   {
-    title: "Amount",
+    title: "Freq. Amount",
     dataIndex: "amount",
   },
   {
@@ -24,7 +24,7 @@ export default [
     dataIndex: "balance",
   },
   {
-    title: "Interest",
+    title: "Interest Earned",
     dataIndex: "interest",
   },
   {
