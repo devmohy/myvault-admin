@@ -29,15 +29,8 @@ const authStore = useAuthStore();
 
 const activeTabKey = ref('all');
 const isFilter = ref(false);
+const current = ref(1);
 
-const handleBookLoanBtn = () => {
-  router.push("/loans/book");
-};
-function handleSearch(searchTerm) {
-    search.value = searchTerm;
-    isFilter.value = true;
-    fetchSavings();
-}
 
 const dateValue = ref([]);
 const formatter = ref({
@@ -52,6 +45,12 @@ const handleFilter = async () => {
   filters.value = {
     date_range: []
   }
+};
+
+const handleTableChange = (pag, filters, sorter) => {
+  current.value = pag.current;
+  setPage(current.value);
+  fetchSavings();
 };
 onMounted(() => {
   initFlowbite()

@@ -21,6 +21,7 @@ class SavingsResource extends JsonResource
             'id' => $this->id,
             'reference' => $this->reference,
             'name' => $this->title,
+            'type' => $this->type,
             'amount' => number_format($this->frequent_amount, 2, '.', ','),
             'balance' => number_format($this->balance->available_balance, 2, '.', ','),
             'interest' => number_format($interest, 2, '.', ','),

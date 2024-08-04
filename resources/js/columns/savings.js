@@ -7,17 +7,13 @@ export default [
     title: "Customer",
     dataIndex: "customer",
   },
-  // {
-  //   title: "Email",
-  //   dataIndex: "customer_email",
-  // },
-  // {
-  //   title: "Phone Number",
-  //   dataIndex: "customer_phone_number",
-  // },
   {
     title: "Savings Name",
     dataIndex: "name",
+  },
+  {
+    title: "Savings Type",
+    dataIndex: "type",
   },
   {
     title: "Amount",
@@ -31,10 +27,6 @@ export default [
     title: "Interest",
     dataIndex: "interest",
   },
-  // {
-  //   title: "Reference",
-  //   dataIndex: "refrence",
-  // },
   {
     title: "Status",
     dataIndex: "status",
