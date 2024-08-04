@@ -114,6 +114,8 @@ Route::middleware('auth:sanctum', 'account.active')->group(function (){
     Route::get('/savings', IndexSavingsController::class);
     Route::get('/transactions', IndexTransactionController::class);
     Route::get('/dashboard/stats', StatsController::class);
+    Route::get('/dashboard/stats/gender', [StatsController::class, 'genderDistribution']);
+    Route::get('/dashboard/stats/savings', [StatsController::class, 'savingsTransition']);
 
     Route::prefix('transaction')->group(function () {
         Route::get('/', [TransactionController::class, 'index']);

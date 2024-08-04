@@ -6,12 +6,17 @@ const authStore = useAuthStore();
 import { useUserAccess } from "@/utils/userAccess";
 const { isAdmin } = useUserAccess();
 import { ref, onMounted } from "vue";
-import AppTour from "@/components/modal/AppTour.vue";
-
+import ChartComponent from "@/components/ChartComponent.vue";
+import { useGenderData } from "@/composables/useGenderData";
+import { useChartData } from '@/composables/useChartData';
+const { data: savingsData, loading:savingsChartLoading, fetchData: fetchSavingsData } = useChartData('/dashboard/stats/savings');
+const { data: genderData, loading:genderChartLoading, fetchData: fetchGenderData } = useChartData('dashboard/stats/gender');
 import { initFlowbite } from "flowbite";
 import api from "@/api";
 
 const summaries = ref([]);
+
+// const { genderData, genderLoading, getGenderData } = useGenderData();
 
 const getStats = async () => {
   try {
@@ -41,6 +46,8 @@ getStats();
 // initialize components based on data attribute selectors
 onMounted(() => {
   initFlowbite();
+  fetchGenderData();
+  fetchSavingsData();
 });
 const business = authStore.user.business;
 const kybVerified = authStore.user.business?.has_completed_kyb;
@@ -92,29 +99,6 @@ const chartOptions = ref({
     categories: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
   },
 });
-
-const series1 = ref( [40, 55, 5]);
-
-const chartOptions1 = ref({
-  chart: {
-    width: 380,
-    type: "pie",
-  },
-  labels: ["Male", "Female", "Others"],
-  responsive: [
-    {
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200,
-        },
-        legend: {
-          position: "bottom",
-        },
-      },
-    },
-  ],
-});
 </script>
 
 <template>
@@ -155,20 +139,20 @@ const chartOptions1 = ref({
         </div>
       </div>
       <div class="p-4 bg-white border border-gray-100 rounded-lg shadow lg:p-2">
-        <apexchart
-          type="bar"
-          height="350"
-          :options="chartOptions"
-          :series="series"
-        ></apexchart>
+        <ChartComponent
+        chartType="bar"
+        :chartData="savingsData.data"
+        :labels="savingsData.labels"
+        title="Monthly Savings"
+        endingShape="flat"
+      />
       </div>
       <div class="p-4 bg-white border border-gray-100 rounded-lg shadow lg:p-2">
-        <apexchart
-          type="pie"
-          width="380"
-          :options="chartOptions1"
-          :series="series1"
-        ></apexchart>
+        <ChartComponent
+          chartType="pie"
+          :chartData="genderData.data"
+          :labels="genderData.labels"
+        />
       </div>
     </div>
   </BusinessLayout>
