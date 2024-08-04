@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Savings;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Models\Savings;
 use Illuminate\Http\Request;
 
-class IndexSavingsController extends Controller
+class IndexSavingsController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -20,7 +21,7 @@ class IndexSavingsController extends Controller
         if($request->due_date == 'undefined'){
             $request->merge(['due_date' => 'today']);
         }
-        return Savings::with('user','transactions')
+        $savings = Savings::with('user','transactions')
         ->when($request->user_id > 0, fn ($q) => $q->where('user_id', $request->user_id))
         ->when($request->due_date == 'today', fn ($q) => $q->whereDate('end_date', now()))
         ->when($request->due_date == 'tomorrow', fn ($q) => $q->whereDate('end_date', now()->addDay()))
@@ -28,5 +29,8 @@ class IndexSavingsController extends Controller
         ->when($request->due_date == 'year', fn ($q) => $q->whereYear('end_date', date('Y')))
         ->latest()
         ->latest()->paginate(10);
+
+
+        return $this->sendResponse($savings, "Customer retrieved successfully", 200);
     }
 }

@@ -4,13 +4,13 @@ export default [
     dataIndex: "date",
   },
   {
-    title: "Name",
-    dataIndex: "customer_name",
+    title: "Customer",
+    dataIndex: "customer",
   },
-  {
-    title: "Email",
-    dataIndex: "customer_email",
-  },
+  // {
+  //   title: "Email",
+  //   dataIndex: "customer_email",
+  // },
   // {
   //   title: "Phone Number",
   //   dataIndex: "customer_phone_number",
@@ -24,7 +24,7 @@ export default [
     dataIndex: "amount",
   },
   {
-    title: "Balance",
+    title: "Total Saved",
     dataIndex: "balance",
   },
   {
