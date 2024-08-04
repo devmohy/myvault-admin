@@ -5,6 +5,7 @@ import { usePagination } from "vue-request";
 import { useCustomers } from "@/composables/useCustomers";
 const {
   customers,
+  pagination,
   stats,
   search,
   filters,
@@ -50,11 +51,6 @@ const pageSize = ref(10); // Assuming default page size is 10, adjust as needed
 
 // Initially fetch records
 fetchCustomers();
-
-const pagination = computed(() => ({
-  total: 200, // Assuming total records count is 200, adjust as needed
-  current: current.value,
-}));
 
 const handleTableChange = (pag, filters, sorter) => {
   current.value = pag.current;

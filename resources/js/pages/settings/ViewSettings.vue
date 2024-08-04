@@ -30,6 +30,10 @@ onMounted(() => {
         <a-tab-pane key="1" tab="Profile"> 
           <ProfileTabPage />
         </a-tab-pane>
+
+        <a-tab-pane key="2" tab="Interest Rate"> 
+          <ProfileTabPage />
+        </a-tab-pane>
     </a-tabs>
   </AppLayout>
 </template>
